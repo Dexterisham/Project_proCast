@@ -9,7 +9,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavType
+import androidx.navigation.navArgument
 import com.example.project_procast.LogicForNow.AppRoutes
+import com.example.project_procast.ui.AppDashboardScreen
 import com.example.project_procast.ui.AppListScreen
 import com.example.project_procast.ui.theme.Project_ProcastTheme
 
@@ -30,11 +33,23 @@ class MainActivity : ComponentActivity() {
                 }
 
                 composable(AppRoutes.SelectedApps) {
-                    SelectedAppsScreen()
+                    SelectedAppsScreen(
+                    onNavigateToDashboard={packageName ->
+                        navController.navigate(AppRoutes.appDashboardRoute(packageName))
+                    }
+                    )
+                }
+                composable(
+                    route=AppRoutes.AppDashboard, 
+                    arguments = listOf(navArgument("packageName") 
+                { type = NavType.StringType })
+                ) 
+                { backStackEntry ->
+                    val packageName = backStackEntry.arguments?.getString("packageName") ?: ""
+                    AppDashboardScreen(packageName = packageName)
                 }
             }
         }
-
     }
 }
 

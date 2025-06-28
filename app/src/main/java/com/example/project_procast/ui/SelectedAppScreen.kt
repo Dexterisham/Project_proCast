@@ -2,6 +2,7 @@ package com.example.project_procast
 
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -19,7 +20,7 @@ import androidx.compose.foundation.layout.asPaddingValues
 import com.example.project_procast.LogicForNow.SelectedAppsManager
 import com.example.project_procast.ui.getUserInstalledApps
 @Composable
-fun SelectedAppsScreen() {
+fun SelectedAppsScreen(onNavigateToDashboard: (String) -> Unit) {
     val context = LocalContext.current
     val packageManager = context.packageManager
     val coroutineScope = rememberCoroutineScope()
@@ -51,6 +52,9 @@ fun SelectedAppsScreen() {
                     verticalAlignment = Alignment.CenterVertically,
                     modifier = Modifier
                         .fillMaxWidth()
+                        .clickable{
+                            onNavigateToDashboard(app.packageName)
+                        }
                         .padding(8.dp)
                 ) {
                     Image(
