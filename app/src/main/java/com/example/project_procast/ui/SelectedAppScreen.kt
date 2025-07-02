@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.project_procast.LogicForNow.SelectedAppsManager
 import com.example.project_procast.ui.getUserInstalledApps
 @Composable

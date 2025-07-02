@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Let app see what apps are installed -->
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+
     <!-- Let app see what apps are installed -->
 
     <queries>
