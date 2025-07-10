@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Project_Procast</string>
+    <string name="accessibility_service_description">Detects which app is in the foreground</string>
 </resources>

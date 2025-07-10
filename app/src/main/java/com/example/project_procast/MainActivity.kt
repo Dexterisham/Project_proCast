@@ -1,5 +1,6 @@
 package com.example.project_procast
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,6 +16,7 @@ import com.example.project_procast.LogicForNow.AppRoutes
 import com.example.project_procast.ui.AppDashboardScreen
 import com.example.project_procast.ui.AppListScreen
 import com.example.project_procast.ui.theme.Project_ProcastTheme
+import com.example.project_procast.services.AppTrackingService
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +52,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        startService(Intent(this, AppTrackingService::class.java))
     }
 }
 
